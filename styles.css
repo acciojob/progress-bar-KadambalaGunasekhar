@@ -1,1 +1,92 @@
 /*  your css code here. If applicable */
+* {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            width: 500px;
+            max-width: 90%;
+        }
+
+        .progress-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        /* Background progress line */
+        .progress-container::before {
+            content: "";
+            background-color: #ccc;
+            position: absolute;
+            height: 4px;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            z-index: -1;
+        }
+
+        /* Filled progress line */
+        .progress {
+            background-color: #3498db;
+            position: absolute;
+            height: 4px;
+            width: 0%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            z-index: -1;
+            transition: width 0.3s ease;
+        }
+
+        .circle {
+            background-color: white;
+            color: #999;
+            border: 3px solid #ccc;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s ease;
+        }
+
+        .circle.active {
+            border-color: #3498db;
+            color: #3498db;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
